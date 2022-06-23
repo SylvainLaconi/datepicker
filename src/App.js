@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import styled from 'styled-components';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Picker from './components/Picker';
+import TimeViewer from './components/TimeViewer';
 
 function App() {
+  const [selectedDate, setSelectedDate] = useState(1655996302);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MainContainer>
+      <SecondaryContainer>
+
+        <Header />
+
+        <TimeViewer selectedDate={selectedDate}/>
+
+        <Picker />
+
+        <Footer />
+
+      </SecondaryContainer>
+    </MainContainer>
   );
 }
 
 export default App;
+
+const MainContainer = styled.div`
+  display: flex;
+  background-color: #DBDBDB;
+  height: 600px;
+  width: 600px;
+  padding: 25px;
+`;
+
+const SecondaryContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  width: 100%;
+  border-radius: 10px;
+  padding: 25px;
+  margin: 0;
+`
