@@ -6,16 +6,34 @@ import Picker from './components/Picker';
 import TimeViewer from './components/TimeViewer';
 
 function App() {
-  const [selectedDate, setSelectedDate] = useState(1655996302);
+  const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
+  const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth());
+  const [selectedDay, setSelectedDay] = useState(new Date().getDate());
+  const [selectedHour, setSelectedHour] = useState("12:00 AM");
+
   return (
     <MainContainer>
       <SecondaryContainer>
 
         <Header />
 
-        <TimeViewer selectedDate={selectedDate}/>
+        <TimeViewer 
+          selectedDay={selectedDay}
+          selectedYear={selectedYear}
+          selectedMonth={selectedMonth}
+          selectedHour={selectedHour}
+        />
 
-        <Picker />
+        <Picker 
+          selectedDay={selectedDay}
+          setSelectedDay={setSelectedDay}
+          selectedMonth={selectedMonth}
+          setSelectedMonth={setSelectedMonth}
+          selectedYear={selectedYear}
+          setSelectedYear={setSelectedYear}
+          selectedHour={selectedHour}
+          setSelectedHour={setSelectedHour}
+        />
 
         <Footer />
 

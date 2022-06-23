@@ -2,13 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 import ItemViewer from './TimeViewer/ItemViewer';
 
-const TimeViewer = ({selectedDate}) => {
+const TimeViewer = ({selectedDay, selectedMonth, selectedYear, selectedHour}) => {
   return (
     <TimeViewerContainer>
 
-      <ItemViewer label={"Date"} value={selectedDate}/>
+      <ItemViewer 
+        label={"Date"}
+        value={`${selectedDay} / ${selectedMonth} / ${selectedYear}`}
+      />
 
-      <ItemViewer label={"Time"} value={selectedDate}/>
+      <ItemViewer label={"Time"} value={selectedHour}/>
 
     </TimeViewerContainer>
   );
